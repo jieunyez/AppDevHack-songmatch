@@ -11,6 +11,9 @@ class GenreViewController: UIViewController {
 
     private var button = UIButton()
     private var MyLabel = UILabel()
+    private var pop = UIButton()
+    private var hiphop = UIButton()
+    private var indie = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
