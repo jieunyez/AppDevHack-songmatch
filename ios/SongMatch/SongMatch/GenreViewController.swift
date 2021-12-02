@@ -127,6 +127,7 @@ class GenreViewController: UIViewController {
         indie.backgroundColor = .white
         rock.backgroundColor = .white
         MyLabel.text = "POP"
+        MyLabel.textColor = UIColor(red: 253/255, green: 208/255, blue: 23/255, alpha: 1)
         
     }
     
@@ -136,6 +137,7 @@ class GenreViewController: UIViewController {
         indie.backgroundColor = .white
         rock.backgroundColor = .white
         MyLabel.text = "Hip Hop"
+        MyLabel.textColor = UIColor(red: 72/255, green: 138/255, blue: 199/255, alpha: 1)
     }
     
     @objc func indiePressed(){
@@ -144,6 +146,7 @@ class GenreViewController: UIViewController {
         pop.backgroundColor = .white
         rock.backgroundColor = .white
         MyLabel.text = "Indie"
+        MyLabel.textColor = UIColor(red: 168/255, green: 204/255, blue: 192/255, alpha: 1)
     }
     @objc func rockPressed(){
         rock.backgroundColor = UIColor(red: 147/255, green: 108/255, blue: 183/255, alpha: 1)
@@ -151,5 +154,6 @@ class GenreViewController: UIViewController {
         indie.backgroundColor = .white
         pop.backgroundColor = .white
         MyLabel.text = "Rock"
+        MyLabel.textColor = UIColor(red: 147/255, green: 108/255, blue: 183/255, alpha: 1)
     }
 }
