@@ -43,6 +43,7 @@ class GenreViewController: UIViewController {
         pop.contentHorizontalAlignment = .fill
         pop.contentVerticalAlignment = .fill
         pop.imageView?.contentMode = .scaleAspectFill
+        pop.addTarget(self, action: #selector(popPressed), for: .touchUpInside)
         view.addSubview(pop)
         
         hiphop.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +53,7 @@ class GenreViewController: UIViewController {
         hiphop.contentHorizontalAlignment = .fill
         hiphop.contentVerticalAlignment = .fill
         hiphop.imageView?.contentMode = .scaleAspectFill
+        hiphop.addTarget(self, action: #selector(hiphopPressed), for: .touchUpInside)
         view.addSubview(hiphop)
         
         indie.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +63,7 @@ class GenreViewController: UIViewController {
         indie.contentHorizontalAlignment = .fill
         indie.contentVerticalAlignment = .fill
         indie.imageView?.contentMode = .scaleAspectFill
+        indie.addTarget(self, action: #selector(indiePressed), for: .touchUpInside)
         view.addSubview(indie)
         
         rock.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +73,7 @@ class GenreViewController: UIViewController {
         rock.contentHorizontalAlignment = .fill
         rock.contentVerticalAlignment = .fill
         rock.imageView?.contentMode = .scaleAspectFill
+        rock.addTarget(self, action: #selector(rockPressed), for: .touchUpInside)
         view.addSubview(rock)
         
         setUpConstraints()
@@ -116,5 +120,36 @@ class GenreViewController: UIViewController {
     @objc func OKButtonPressed(){
         let vc = PlaylistViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func popPressed(){
+        pop.backgroundColor = UIColor(red: 253/255, green: 208/255, blue: 23/255, alpha: 1)
+        hiphop.backgroundColor = .white
+        indie.backgroundColor = .white
+        rock.backgroundColor = .white
+        MyLabel.text = "POP"
+        
+    }
+    
+    @objc func hiphopPressed(){
+        hiphop.backgroundColor = UIColor(red: 72/255, green: 138/255, blue: 199/255, alpha: 1)
+        pop.backgroundColor = .white
+        indie.backgroundColor = .white
+        rock.backgroundColor = .white
+        MyLabel.text = "Hip Hop"
+    }
+    
+    @objc func indiePressed(){
+        indie.backgroundColor = UIColor(red: 168/255, green: 204/255, blue: 192/255, alpha: 1)
+        hiphop.backgroundColor = .white
+        pop.backgroundColor = .white
+        rock.backgroundColor = .white
+        MyLabel.text = "Indie"
+    }
+    @objc func rockPressed(){
+        rock.backgroundColor = UIColor(red: 147/255, green: 108/255, blue: 183/255, alpha: 1)
+        hiphop.backgroundColor = .white
+        indie.backgroundColor = .white
+        pop.backgroundColor = .white
+        MyLabel.text = "Rock"
     }
 }
