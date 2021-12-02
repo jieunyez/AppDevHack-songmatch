@@ -17,14 +17,14 @@ class GenreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         MyLabel = UILabel()
         MyLabel.translatesAutoresizingMaskIntoConstraints = false
         MyLabel.text = "Genre"
         MyLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
         MyLabel.textAlignment = .left
-        MyLabel.textColor = .black
+        MyLabel.textColor = .white
         view.addSubview(MyLabel)
         
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +34,33 @@ class GenreViewController: UIViewController {
         button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(OKButtonPressed), for: .touchUpInside)
         view.addSubview(button)
+        
+        pop.translatesAutoresizingMaskIntoConstraints = false
+        pop.setImage(UIImage(named: "pop"), for: .normal)
+        pop.backgroundColor = UIColor(.white)
+        pop.layer.cornerRadius = 4
+        pop.contentHorizontalAlignment = .fill
+        pop.contentVerticalAlignment = .fill
+        pop.imageView?.contentMode = .scaleAspectFill
+        view.addSubview(pop)
+        
+        hiphop.translatesAutoresizingMaskIntoConstraints = false
+        hiphop.setImage(UIImage(named: "hiphop"), for: .normal)
+        hiphop.backgroundColor = UIColor(.white)
+        hiphop.layer.cornerRadius = 4
+        hiphop.contentHorizontalAlignment = .fill
+        hiphop.contentVerticalAlignment = .fill
+        hiphop.imageView?.contentMode = .scaleAspectFill
+        view.addSubview(hiphop)
+        
+        indie.translatesAutoresizingMaskIntoConstraints = false
+        indie.setImage(UIImage(named: "Indie"), for: .normal)
+        indie.backgroundColor = UIColor(.white)
+        indie.layer.cornerRadius = 4
+        indie.contentHorizontalAlignment = .fill
+        indie.contentVerticalAlignment = .fill
+        indie.imageView?.contentMode = .scaleAspectFill
+        view.addSubview(indie)
         
         setUpConstraints()
     }
@@ -50,6 +77,25 @@ class GenreViewController: UIViewController {
             button.widthAnchor.constraint(equalToConstant: 120),
             button.heightAnchor.constraint(equalToConstant: 32)
         ])
+        NSLayoutConstraint.activate([
+            pop.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
+            pop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
+            pop.widthAnchor.constraint(equalToConstant: 150),
+            pop.heightAnchor.constraint(equalToConstant: 150)
+        ])
+        NSLayoutConstraint.activate([
+            hiphop.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
+            hiphop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
+            hiphop.widthAnchor.constraint(equalToConstant: 150),
+            hiphop.heightAnchor.constraint(equalToConstant: 150)
+        ])
+        NSLayoutConstraint.activate([
+            indie.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
+            indie.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 40),
+            indie.widthAnchor.constraint(equalToConstant: 150),
+            indie.heightAnchor.constraint(equalToConstant: 150)
+        ])
+
     }
     @objc func OKButtonPressed(){
         let vc = PlaylistViewController()
