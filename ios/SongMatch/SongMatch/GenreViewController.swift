@@ -14,6 +14,7 @@ class GenreViewController: UIViewController {
     private var pop = UIButton()
     private var hiphop = UIButton()
     private var indie = UIButton()
+    private var rock = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,8 @@ class GenreViewController: UIViewController {
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("OK", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(.black)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = UIColor(.white)
         button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(OKButtonPressed), for: .touchUpInside)
         view.addSubview(button)
@@ -61,6 +62,15 @@ class GenreViewController: UIViewController {
         indie.contentVerticalAlignment = .fill
         indie.imageView?.contentMode = .scaleAspectFill
         view.addSubview(indie)
+        
+        rock.translatesAutoresizingMaskIntoConstraints = false
+        rock.setImage(UIImage(named: "Rock"), for: .normal)
+        rock.backgroundColor = UIColor(.white)
+        rock.layer.cornerRadius = 4
+        rock.contentHorizontalAlignment = .fill
+        rock.contentVerticalAlignment = .fill
+        rock.imageView?.contentMode = .scaleAspectFill
+        view.addSubview(rock)
         
         setUpConstraints()
     }
@@ -94,6 +104,12 @@ class GenreViewController: UIViewController {
             indie.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 40),
             indie.widthAnchor.constraint(equalToConstant: 150),
             indie.heightAnchor.constraint(equalToConstant: 150)
+        ])
+        NSLayoutConstraint.activate([
+            rock.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
+            rock.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 40),
+            rock.widthAnchor.constraint(equalToConstant: 150),
+            rock.heightAnchor.constraint(equalToConstant: 150)
         ])
 
     }
