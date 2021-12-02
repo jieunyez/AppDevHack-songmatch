@@ -20,9 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-
-        // TODO 2: set title
-        //hello
+        self.navigationController?.navigationBar.tintColor = .white
+        
         MyLabel = UILabel()
         MyLabel.translatesAutoresizingMaskIntoConstraints = false
         MyLabel.text = "SongMatch"
