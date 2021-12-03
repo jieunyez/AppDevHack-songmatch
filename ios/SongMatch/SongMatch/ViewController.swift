@@ -8,6 +8,7 @@
 //test
 
 import UIKit
+import SwiftUI
 
 // TODO 6: create protocol to update title
 
@@ -16,11 +17,18 @@ class ViewController: UIViewController {
     private var MyLabel = UILabel()
     private var pushButton = UIButton()
     private var presentButton = UIButton()
+    var child = UIHostingController(rootView: ContentView())
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        self.navigationController?.navigationBar.tintColor = .white
+        
+        self.navigationController?.navigationBar.tintColor = .black
+        
+        
+        child.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(child.view)
+        self.addChild(child)
         
         MyLabel = UILabel()
         MyLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -45,11 +53,21 @@ class ViewController: UIViewController {
         presentButton.layer.cornerRadius = 4
         presentButton.addTarget(self, action: #selector(listButtonPressed), for: .touchUpInside)
         view.addSubview(presentButton)
+        
+        
 
         setUpViews()
     }
 
     func setUpViews() {
+        
+        NSLayoutConstraint.activate([
+            child.view.topAnchor.constraint(equalTo: view.topAnchor),
+            child.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            child.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            child.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
         NSLayoutConstraint.activate([
             MyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             MyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
@@ -69,6 +87,7 @@ class ViewController: UIViewController {
             presentButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24),
             presentButton.heightAnchor.constraint(equalToConstant: 48)
         ])
+        
     }
 
     @objc func generateButtonPressed() {
@@ -85,3 +104,24 @@ class ViewController: UIViewController {
     }
 
 }
+
+struct ContentView: View {
+    
+    @State var gradient = [Color.red, Color.purple, Color.orange]
+    @State var startPoint = UnitPoint(x: 0, y: 0)
+    @State var endPoint = UnitPoint(x: 0, y: 2)
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 0)
+            .fill(LinearGradient(gradient: Gradient(colors: self.gradient), startPoint: self.startPoint, endPoint: self.endPoint))
+            .frame(width: 600, height: 1000)
+            .onAppear {
+                withAnimation (.easeInOut(duration: 3).repeatForever()){
+                    self.startPoint = UnitPoint(x: 1, y: -1)
+                    self.endPoint = UnitPoint(x: 0, y: 1)
+                }
+        }
+    }
+}
+
+

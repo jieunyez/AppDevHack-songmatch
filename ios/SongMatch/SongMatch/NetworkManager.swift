@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkManager {
 
-    static let endpoint = "https://songmatchappdev.herokuapp.com/song/"
+    static let endpoint = "https://songmatchappdev.herokuapp.com/getsongs/"
 
 
 
@@ -19,9 +19,9 @@ class NetworkManager {
             switch response.result {
             case .success(let data):
                 let jsonDecoder = JSONDecoder()
-                if let songResponse = try? jsonDecoder.decode(SongResponse.self, from: data) {
-                    let songs = songResponse.data
-                    completion([songs])
+                if let songResponse = try? jsonDecoder.decode(SongsResponse.self, from: data) {
+                    let songs = songResponse.songs
+                    completion(songs)
                 }
             case .failure(let error):
                 print(error)
@@ -35,10 +35,10 @@ class NetworkManager {
             case .success(let data):
                 let jsonDecoder = JSONDecoder()
                 if let songResponse = try?
-                    jsonDecoder.decode(SongResponse.self, from:data) {
-                    let song = songResponse.data
+                    jsonDecoder.decode(SongsResponse.self, from:data) {
+                    let song = songResponse.songs
                     print(song)
-                    completion([song])
+                    completion(song)
                 }
             case .failure(let error):
                 print(error)
@@ -52,10 +52,39 @@ class NetworkManager {
             case .success(let data):
                 let jsonDecoder = JSONDecoder()
                 if let songResponse = try?
-                    jsonDecoder.decode(SongResponse.self, from:data) {
-                    let song = songResponse.data
+                    jsonDecoder.decode(SongsResponse.self, from:data) {
+                    let song = songResponse.songs
                     print(song)
-                    completion([song])
+                    completion(song)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    static func getSongsbyInputs(mood: String, genre: String, completion: @escaping ([Song]) -> Void) {
+        AF.request("\(endpoint)?mood=\(mood)&genre\(genre)", method: .get).validate().responseData { response in
+            switch response.result {
+            case .success(let data):
+//                let jsonDecoder = JSONDecoder()
+//                if let songResponse = try?
+//                    jsonDecoder.decode(SongsResponse.self, from:data) {
+//                    let song = songResponse.songs
+//                    print(song)
+//                    completion(song)
+//                } else {
+//                    print("decode error")
+//                }
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let songResponse = try
+                        jsonDecoder.decode(SongsResponse.self, from:data)
+                        let song = songResponse.songs
+                        print(song)
+                        completion(song)
+                } catch {
+                    print(error)
                 }
             case .failure(let error):
                 print(error)

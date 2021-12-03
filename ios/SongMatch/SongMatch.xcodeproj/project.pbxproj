@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36A07A2A2759966F00D8AE6B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A07A292759966F00D8AE6B /* NetworkManager.swift */; };
+		36A07A32275AB1C000D8AE6B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A07A31275AB1C000D8AE6B /* NetworkManager.swift */; };
 		525CE56C7DAEAEBD6B947A05 /* Pods_SongMatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EA22AAAA2AAEDA6BAC2925 /* Pods_SongMatch.framework */; };
 		D17517DC2749973600049561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17517DB2749973600049561 /* AppDelegate.swift */; };
 		D17517DE2749973600049561 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17517DD2749973600049561 /* SceneDelegate.swift */; };
@@ -23,6 +23,7 @@
 		D175181227499A8800049561 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175181127499A8800049561 /* GenreViewController.swift */; };
 		D175181427499AEC00049561 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175181327499AEC00049561 /* MoodViewController.swift */; };
 		D175181627499AFA00049561 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175181527499AFA00049561 /* SampleViewController.swift */; };
+		D17518872759A91D00049561 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17518862759A91D00049561 /* WaveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		0676BB3A4905D6513E86202F /* Pods-SongMatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongMatch.debug.xcconfig"; path = "Target Support Files/Pods-SongMatch/Pods-SongMatch.debug.xcconfig"; sourceTree = "<group>"; };
-		36A07A292759966F00D8AE6B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		36A07A31275AB1C000D8AE6B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C47EB6F09FD5F2ECABBAF7DF /* Pods-SongMatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SongMatch.release.xcconfig"; path = "Target Support Files/Pods-SongMatch/Pods-SongMatch.release.xcconfig"; sourceTree = "<group>"; };
 		D17517D82749973600049561 /* SongMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17517DB2749973600049561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		D175181127499A8800049561 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
 		D175181327499AEC00049561 /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
 		D175181527499AFA00049561 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		D17518862759A91D00049561 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		E9EA22AAAA2AAEDA6BAC2925 /* Pods_SongMatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SongMatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,18 +130,19 @@
 			isa = PBXGroup;
 			children = (
 				D17517DB2749973600049561 /* AppDelegate.swift */,
+				D175180F2749999C00049561 /* PlaylistViewController.swift */,
+				36A07A31275AB1C000D8AE6B /* NetworkManager.swift */,
 				D17517DD2749973600049561 /* SceneDelegate.swift */,
 				D17517DF2749973600049561 /* ViewController.swift */,
-				D175180B2749982E00049561 /* Song.swift */,
-				36A07A292759966F00D8AE6B /* NetworkManager.swift */,
-				D175180F2749999C00049561 /* PlaylistViewController.swift */,
 				D175181327499AEC00049561 /* MoodViewController.swift */,
 				D175181127499A8800049561 /* GenreViewController.swift */,
-				D175180D2749986500049561 /* SongTableViewCell.swift */,
 				D175181527499AFA00049561 /* SampleViewController.swift */,
+				D175180B2749982E00049561 /* Song.swift */,
 				D17517E42749973700049561 /* Assets.xcassets */,
 				D17517E62749973700049561 /* LaunchScreen.storyboard */,
 				D17517E92749973700049561 /* Info.plist */,
+				D175180D2749986500049561 /* SongTableViewCell.swift */,
+				D17518862759A91D00049561 /* WaveView.swift */,
 			);
 			path = SongMatch;
 			sourceTree = "<group>";
@@ -344,9 +347,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D175181227499A8800049561 /* GenreViewController.swift in Sources */,
+				D17518872759A91D00049561 /* WaveView.swift in Sources */,
 				D175181427499AEC00049561 /* MoodViewController.swift in Sources */,
-				36A07A2A2759966F00D8AE6B /* NetworkManager.swift in Sources */,
 				D175180C2749982E00049561 /* Song.swift in Sources */,
+				36A07A32275AB1C000D8AE6B /* NetworkManager.swift in Sources */,
 				D17517E02749973600049561 /* ViewController.swift in Sources */,
 				D17518102749999C00049561 /* PlaylistViewController.swift in Sources */,
 				D175180E2749986500049561 /* SongTableViewCell.swift in Sources */,

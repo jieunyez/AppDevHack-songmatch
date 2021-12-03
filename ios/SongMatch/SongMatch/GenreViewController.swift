@@ -93,31 +93,31 @@ class GenreViewController: UIViewController {
         NSLayoutConstraint.activate([
             pop.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
             pop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
-            pop.widthAnchor.constraint(equalToConstant: 150),
-            pop.heightAnchor.constraint(equalToConstant: 150)
+            pop.widthAnchor.constraint(equalToConstant: 130),
+            pop.heightAnchor.constraint(equalToConstant: 130)
         ])
         NSLayoutConstraint.activate([
             hiphop.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             hiphop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
-            hiphop.widthAnchor.constraint(equalToConstant: 150),
-            hiphop.heightAnchor.constraint(equalToConstant: 150)
+            hiphop.widthAnchor.constraint(equalToConstant: 130),
+            hiphop.heightAnchor.constraint(equalToConstant: 130)
         ])
         NSLayoutConstraint.activate([
             indie.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
             indie.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 40),
-            indie.widthAnchor.constraint(equalToConstant: 150),
-            indie.heightAnchor.constraint(equalToConstant: 150)
+            indie.widthAnchor.constraint(equalToConstant: 130),
+            indie.heightAnchor.constraint(equalToConstant: 130)
         ])
         NSLayoutConstraint.activate([
             rock.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             rock.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 40),
-            rock.widthAnchor.constraint(equalToConstant: 150),
-            rock.heightAnchor.constraint(equalToConstant: 150)
+            rock.widthAnchor.constraint(equalToConstant: 130),
+            rock.heightAnchor.constraint(equalToConstant: 130)
         ])
 
     }
     @objc func OKButtonPressed(){
-        let vc = PlaylistViewController()
+        let vc = SampleViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func popPressed(){
