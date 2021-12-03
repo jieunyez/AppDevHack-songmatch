@@ -14,6 +14,15 @@ class GenreViewController: UIViewController {
     private var hiphop = UIButton()
     private var indie = UIButton()
     private var rock = UIButton()
+    private var selectedGenre = ""
+    private var selectedMood = ""
+    
+    //weak var delegate: GetSortedSongsDelegate?
+
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +126,8 @@ class GenreViewController: UIViewController {
 
     }
     @objc func OKButtonPressed(){
-        let vc = PlaylistViewController()
+        let vc = SampleViewController()
+        //delegate?.getSortedSongs(mood: selectedMood, genre: selectedGenre)
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func popPressed(){
@@ -127,7 +137,7 @@ class GenreViewController: UIViewController {
         rock.backgroundColor = .white
         MyLabel.text = "POP"
         MyLabel.textColor = UIColor(red: 253/255, green: 208/255, blue: 23/255, alpha: 1)
-        
+        selectedGenre = "pop"
     }
     
     @objc func hiphopPressed(){
@@ -137,6 +147,7 @@ class GenreViewController: UIViewController {
         rock.backgroundColor = .white
         MyLabel.text = "Hip Hop"
         MyLabel.textColor = UIColor(red: 72/255, green: 138/255, blue: 199/255, alpha: 1)
+        selectedGenre = "hiphop"
     }
     
     @objc func indiePressed(){
@@ -146,6 +157,7 @@ class GenreViewController: UIViewController {
         rock.backgroundColor = .white
         MyLabel.text = "Indie"
         MyLabel.textColor = UIColor(red: 168/255, green: 204/255, blue: 192/255, alpha: 1)
+        selectedGenre = "indie"
     }
     @objc func rockPressed(){
         rock.backgroundColor = UIColor(red: 147/255, green: 108/255, blue: 183/255, alpha: 1)
@@ -154,5 +166,17 @@ class GenreViewController: UIViewController {
         pop.backgroundColor = .white
         MyLabel.text = "Rock"
         MyLabel.textColor = UIColor(red: 147/255, green: 108/255, blue: 183/255, alpha: 1)
+        selectedGenre = "rock"
     }
 }
+
+//protocol UpdateMoodDelegate: AnyObject {
+//    func updateMood(mood: String)
+//}
+//
+//extension GenreViewController: UpdateMoodDelegate {
+//    func updateMood(mood: String) {
+//        selectedMood = mood
+//    }
+//}
+

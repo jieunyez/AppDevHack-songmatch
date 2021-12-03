@@ -26,9 +26,21 @@ class MoodViewController: UIViewController {
     private var energylabel = UILabel()
     private var sadlabel = UILabel()
     private var calmlabel = UILabel()
+
     private var happylabel = UILabel()
     var child = UIHostingController(rootView: WaveView(col: Color.blue.opacity(0.3)))
     
+
+    private var selectedMood = ""
+    
+    
+//    weak var delegate: UpdateMoodDelegate?
+//
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -250,6 +262,7 @@ class MoodViewController: UIViewController {
     }
     @objc func NextButtonPressed(){
         let vc = GenreViewController()
+        //delegate?.updateMood(mood: selectedMood)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -263,7 +276,12 @@ class MoodViewController: UIViewController {
         MyLabel.isHidden = true
         sadlabel.isHidden = true
         calmlabel.isHidden = true
+
         happylabel.isHidden = true
+
+        selectedMood = "happy"
+        
+
     }
     
     @objc func SadPressed(){
@@ -274,7 +292,11 @@ class MoodViewController: UIViewController {
         MyLabel.isHidden = true
         sadlabel.isHidden = false
         calmlabel.isHidden = true
+
         happylabel.isHidden = true
+
+        selectedMood = "sad"
+
     }
     
     @objc func calmPressed(){
@@ -285,6 +307,7 @@ class MoodViewController: UIViewController {
         MyLabel.isHidden = true
         sadlabel.isHidden = true
         calmlabel.isHidden = false
+
         happylabel.isHidden = true
     }
     @objc func happyPressed(){
@@ -296,6 +319,9 @@ class MoodViewController: UIViewController {
         sadlabel.isHidden = true
         calmlabel.isHidden = true
         happylabel.isHidden = false
+
+        selectedMood = "calm"
+
     }
 }
 

@@ -18,7 +18,7 @@ class SongTableViewCell:UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .black
 
-        nameLabel.font = .boldSystemFont(ofSize: 14)
+        nameLabel.font = .boldSystemFont(ofSize: 16)
         nameLabel.textColor = .white
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameLabel)
@@ -35,7 +35,9 @@ class SongTableViewCell:UITableViewCell {
 
         coverImage.contentMode = .scaleAspectFit
         coverImage.translatesAutoresizingMaskIntoConstraints = false
+        coverImage.layer.cornerRadius = 4
         contentView.addSubview(coverImage)
+        
 
         setupConstraints()
     }
@@ -52,16 +54,17 @@ class SongTableViewCell:UITableViewCell {
     }
     
     func setupConstraints() {
-        let padding: CGFloat = 8
+        let padding: CGFloat = 0
         let labelHeight: CGFloat = 20
         
         NSLayoutConstraint.activate([
             coverImage.heightAnchor.constraint(equalToConstant: 75),
             coverImage.widthAnchor.constraint(equalToConstant: 75),
+            coverImage.leftAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leftAnchor, constant: 8),
             coverImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
         NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: coverImage.trailingAnchor, constant: 20),
+            nameLabel.leadingAnchor.constraint(equalTo: coverImage.trailingAnchor, constant: 30),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding + 10),
             nameLabel.heightAnchor.constraint(equalToConstant: labelHeight)
         ])
