@@ -19,11 +19,11 @@ struct Song: Codable {
 }
 
 struct Genre: Codable {
-    let genre: String
+    let name: String
 }
 
 struct Mood: Codable {
-    let mood: String
+    let name: String
 }
 
 struct SongsResponse: Codable {

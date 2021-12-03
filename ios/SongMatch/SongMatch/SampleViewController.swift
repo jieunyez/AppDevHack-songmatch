@@ -16,7 +16,7 @@ class SampleViewController: UIViewController {
     let cellHeight = 150
     let imageRadius = 4
     
-    var currcell : Song = Song(title: "", artist: "", album: "", cover: "", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+    var currcell : Song = Song(title: "", artist: "", album: "", cover: "", genre: [Genre(name: "")], mood: [Mood(name: "")])
     
     var cellnum = 1000
     
