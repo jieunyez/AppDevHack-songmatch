@@ -7,27 +7,32 @@
 
 import Foundation
 
-class Song: Codable {
-    var name: String
+
+struct Song: Codable {
+    var title: String
     var artist: String
     var album: String
     var cover: String
+    var genre: [Genre]
+    var mood: [Mood]
     
-    init(name: String, artist: String, album: String, cover: String) {
-        self.name = name
-        self.artist = artist
-        self.album = album
-        self.cover = cover
-    }
-    
+}
+
+struct Genre: Codable {
+    let genre: String
+}
+
+struct Mood: Codable {
+    let mood: String
 }
 
 struct SongsResponse: Codable {
-    var success: Bool
-    var data: [Song]
+//    var success: Bool
+    var songs: [Song]
 }
 
-struct SongResponse: Codable {
-    var success: Bool
-    var data: Song
-}
+//struct SongResponse: Codable {
+//    var success: Bool
+//    var data: Song
+//}
+

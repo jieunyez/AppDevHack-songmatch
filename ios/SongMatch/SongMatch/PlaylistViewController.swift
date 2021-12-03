@@ -16,7 +16,7 @@ class PlaylistViewController: UIViewController {
     let cellHeight = 150
     let imageRadius = 4
     
-    var currcell : Song = Song(name: "", artist: "", album: "", cover: "")
+    var currcell : Song = Song(title: "", artist: "", album: "", cover: "", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
     
     var cellnum = 1000
     
@@ -39,16 +39,16 @@ class PlaylistViewController: UIViewController {
 
 
         
-        var americanboy = Song(name: "American Boy", artist: "Estelle, Kanye West", album: "Shine", cover: "americanboy")
-        var fireflies = Song(name: "Fireflies", artist: "Owl City", album: "Ocean Eyes", cover: "fireflies")
-        var gooddays = Song(name: "Good Days", artist: "SZA", album: "Good Days", cover: "gooddays")
-        var jocelynflores = Song(name: "Jocelyn Flores", artist: "XXXTENTACION", album: "17", cover: "jocelynflores")
-        var july = Song(name: "July", artist: "Noah Cyrus", album: "THE END OF EVERYTHING", cover: "july")
-        var sandm = Song(name: "S&M", artist: "Rihanna", album: "Loud", cover: "sandm")
-        var slowdancing = Song(name: "SLOW DANCING IN THE DARK", artist: "Joji", album: "BALLADS 1", cover: "slowdancing")
-        var stressedout = Song(name: "Stressed Out", artist: "Twenty One Pilots", album: "BlurryFace", cover: "stressedout")
-        var sweaterweather = Song(name: "Sweater Weather", artist: "The Neighbourhood", album: "I Love You.", cover: "sweaterweather")
-        var waitingontheworld = Song(name: "Waiting On the World to Change", artist: "John Mayer", album: "Continuum", cover: "waitingontheworld")
+        var americanboy = Song(title: "American Boy", artist: "Estelle, Kanye West", album: "Shine", cover: "americanboy", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var fireflies = Song(title: "Fireflies", artist: "Owl City", album: "Ocean Eyes", cover: "fireflies", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var gooddays = Song(title: "Good Days", artist: "SZA", album: "Good Days", cover: "gooddays", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var jocelynflores = Song(title: "Jocelyn Flores", artist: "XXXTENTACION", album: "17", cover: "jocelynflores", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var july = Song(title: "July", artist: "Noah Cyrus", album: "THE END OF EVERYTHING", cover: "july", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var sandm = Song(title: "S&M", artist: "Rihanna", album: "Loud", cover: "sandm", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var slowdancing = Song(title: "SLOW DANCING IN THE DARK", artist: "Joji", album: "BALLADS 1", cover: "slowdancing", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var stressedout = Song(title: "Stressed Out", artist: "Twenty One Pilots", album: "BlurryFace", cover: "stressedout", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var sweaterweather = Song(title: "Sweater Weather", artist: "The Neighbourhood", album: "I Love You.", cover: "sweaterweather", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
+        var waitingontheworld = Song(title: "Waiting On the World to Change", artist: "John Mayer", album: "Continuum", cover: "waitingontheworld", genre: [Genre(genre: "")], mood: [Mood(mood: "")])
         
         songs = [americanboy, fireflies, gooddays, jocelynflores, july, sandm, slowdancing, stressedout, sweaterweather, waitingontheworld]
         
