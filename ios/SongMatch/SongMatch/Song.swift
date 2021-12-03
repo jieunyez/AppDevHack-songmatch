@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Song {
+class Song: Codable {
     var name: String
     var artist: String
     var album: String
@@ -20,4 +20,14 @@ class Song {
         self.cover = cover
     }
     
+}
+
+struct SongsResponse: Codable {
+    var success: Bool
+    var data: [Song]
+}
+
+struct SongResponse: Codable {
+    var success: Bool
+    var data: Song
 }
