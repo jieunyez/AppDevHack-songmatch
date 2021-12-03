@@ -14,6 +14,7 @@ class PlaylistViewController: UIViewController {
     
     let reuseIdentifier = "songCellReuse"
     let cellHeight = 150
+    let imageRadius = 4
     
     var currcell : Song = Song(name: "", artist: "", album: "", cover: "")
     
@@ -27,6 +28,16 @@ class PlaylistViewController: UIViewController {
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         title = "Playlist"
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor(red: 138/255, green: 34/255, blue: 191/255, alpha: 1.0).cgColor, UIColor(red: 17/255, green: 3/255, blue: 79/255, alpha: 1.0).cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.shouldRasterize = true
+        view.layer.addSublayer(gradientLayer)
+
+
         
         var americanboy = Song(name: "American Boy", artist: "Estelle, Kanye West", album: "Shine", cover: "americanboy")
         var fireflies = Song(name: "Fireflies", artist: "Owl City", album: "Ocean Eyes", cover: "fireflies")
@@ -49,6 +60,7 @@ class PlaylistViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(SongTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.backgroundColor = .clear
         view.addSubview(tableView)
         
         setupConstraints()
@@ -76,26 +88,44 @@ extension PlaylistViewController: UITableViewDataSource {
             let song = songs[indexPath.row]
             cell.configure(song: song)
             cell.selectionStyle = .none
+            cell.coverImage.layer.masksToBounds = true
+            cell.coverImage.layer.cornerRadius = 50
+            cell.backgroundColor = .clear
             return cell
         } else {
             return UITableViewCell()
         }
     }
-
 }
 
 extension PlaylistViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 77
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var selectedCell = tableView.cellForRow(at: indexPath) as! SongTableViewCell
         let song = songs[indexPath.row]
-        if let cell = tableView.cellForRow(at: indexPath) as? SongTableViewCell {
-            currcell = song
-            cellnum = indexPath.row
+        let songViewController = PlaylistViewController()
+        selectedCell.backgroundColor = UIColor(red: 214/255, green: 65/255, blue: 234/255, alpha: 1.0)
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        var deselectedCell = tableView.cellForRow(at: indexPath) as! SongTableViewCell
+        deselectedCell.backgroundColor = .clear
+     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastIndexPath = tableView.indexPathsForVisibleRows?.last{
+            if lastIndexPath.row <= indexPath.row{
+                cell.center.y = cell.center.y + cell.frame.height / 2
+                cell.alpha = 0
+                UIView.animate(withDuration: 0.5, delay: 0.05*Double(indexPath.row), options: [.curveEaseInOut], animations: {
+                    cell.center.y = cell.center.y - cell.frame.height / 2
+                    cell.alpha = 1
+                }, completion: nil)
+            }
         }
     }
+    
 }
 
 
