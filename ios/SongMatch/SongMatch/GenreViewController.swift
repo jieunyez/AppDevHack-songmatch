@@ -15,6 +15,14 @@ class GenreViewController: UIViewController {
     private var indie = UIButton()
     private var rock = UIButton()
     private var selectedGenre = ""
+    private var selectedMood = ""
+    
+    //weak var delegate: GetSortedSongsDelegate?
+
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,6 +127,7 @@ class GenreViewController: UIViewController {
     }
     @objc func OKButtonPressed(){
         let vc = SampleViewController()
+        //delegate?.getSortedSongs(mood: selectedMood, genre: selectedGenre)
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func popPressed(){
@@ -160,3 +169,14 @@ class GenreViewController: UIViewController {
         selectedGenre = "rock"
     }
 }
+
+//protocol UpdateMoodDelegate: AnyObject {
+//    func updateMood(mood: String)
+//}
+//
+//extension GenreViewController: UpdateMoodDelegate {
+//    func updateMood(mood: String) {
+//        selectedMood = mood
+//    }
+//}
+

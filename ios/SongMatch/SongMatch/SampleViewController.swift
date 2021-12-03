@@ -49,6 +49,41 @@ class SampleViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    func getSongs(mood: String, genre: String) {
+        if (mood != "" && genre != "") {
+            return NetworkManager.getSongsbyInputs(mood: mood, genre: genre) { songs in
+                self.songs = songs
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        if (mood != "" && genre != "") {
+            return NetworkManager.getSongs { songs in
+                self.songs = songs
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        else if (mood != "") {
+            return NetworkManager.getSongsbyMood(mood: mood) { songs in
+                self.songs = songs
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        if (genre != "" && mood == "") {
+            return NetworkManager.getSongsbyGenre(genre: genre) { songs in
+                self.songs = songs
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
 
 }
 

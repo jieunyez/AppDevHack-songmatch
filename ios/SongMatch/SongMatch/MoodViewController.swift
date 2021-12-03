@@ -25,6 +25,14 @@ class MoodViewController: UIViewController {
     private var sadlabel = UILabel()
     private var calmlabel = UILabel()
     private var selectedMood = ""
+    
+    
+//    weak var delegate: UpdateMoodDelegate?
+//
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,6 +165,7 @@ class MoodViewController: UIViewController {
     }
     @objc func NextButtonPressed(){
         let vc = GenreViewController()
+        //delegate?.updateMood(mood: selectedMood)
         navigationController?.pushViewController(vc, animated: true)
     }
     
