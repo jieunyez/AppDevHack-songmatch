@@ -24,6 +24,7 @@ class MoodViewController: UIViewController {
     private var energylabel = UILabel()
     private var sadlabel = UILabel()
     private var calmlabel = UILabel()
+    private var selectedMood = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,6 +166,7 @@ class MoodViewController: UIViewController {
         MyLabel.isHidden = true
         sadlabel.isHidden = true
         calmlabel.isHidden = true
+        selectedMood = "happy"
         
     }
     
@@ -174,6 +176,7 @@ class MoodViewController: UIViewController {
         MyLabel.isHidden = true
         sadlabel.isHidden = false
         calmlabel.isHidden = true
+        selectedMood = "sad"
     }
     
     @objc func calmPressed(){
@@ -182,5 +185,6 @@ class MoodViewController: UIViewController {
         MyLabel.isHidden = true
         sadlabel.isHidden = true
         calmlabel.isHidden = false
+        selectedMood = "calm"
     }
 }

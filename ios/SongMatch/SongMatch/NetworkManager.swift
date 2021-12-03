@@ -62,5 +62,22 @@ class NetworkManager {
             }
         }
     }
+    
+    static func getSongsbyInputs(mood: String, genre: String, completion: @escaping ([Song]) -> Void) {
+        AF.request("\(endpoint)?mood=\(mood)&genre\(genre)", method: .get).validate().responseData { response in
+            switch response.result {
+            case .success(let data):
+                let jsonDecoder = JSONDecoder()
+                if let songResponse = try?
+                    jsonDecoder.decode(SongResponse.self, from:data) {
+                    let song = songResponse.data
+                    print(song)
+                    completion([song])
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 
 }
