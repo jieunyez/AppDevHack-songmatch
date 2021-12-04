@@ -34,7 +34,7 @@ class MoodViewController: UIViewController {
     private var selectedMood = ""
     
     
-//    weak var delegate: UpdateMoodDelegate?
+    weak var delegate: UpdateMoodDelegate?
 //
 //
 //    required init?(coder: NSCoder) {
@@ -262,7 +262,7 @@ class MoodViewController: UIViewController {
     }
     @objc func NextButtonPressed(){
         let vc = GenreViewController()
-        //delegate?.updateMood(mood: selectedMood)
+        delegate?.updateMood(newMood: selectedMood)
         navigationController?.pushViewController(vc, animated: true)
     }
     

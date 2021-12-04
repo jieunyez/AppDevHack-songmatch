@@ -17,10 +17,11 @@ class SampleViewController: UIViewController {
     let imageRadius = 4
     
     var currcell : Song = Song(title: "", artist: "", album: "", cover: "", genre: [Genre(name: "")], mood: [Mood(name: "")])
-    
     var cellnum = 1000
-    
     var songs: [Song] = []
+    
+    private var selectedGenre = ""
+    private var selectedMood = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,9 @@ class SampleViewController: UIViewController {
         view.layer.addSublayer(gradientLayer)
 
 
-        
-        getSongs(mood: "sad", genre: "indie")
+        print("Printing Mood: \(selectedMood)")
+        print("Printing Genre: \(selectedGenre)")
+        getSongs(mood: selectedMood, genre: selectedGenre)
         
         if (cellnum != 1000) {
             songs[cellnum] = currcell
@@ -152,4 +154,13 @@ extension SampleViewController: UITableViewDelegate {
     
 }
 
+protocol UpdateMoodGenreDelegate: class {
+    func updateMoodGenre(newMood: String, newGenre: String)
+}
 
+extension SampleViewController: UpdateMoodGenreDelegate {
+    func updateMoodGenre(newMood: String, newGenre: String) {
+        self.selectedMood = newMood
+        self.selectedGenre = newGenre
+    }
+}
