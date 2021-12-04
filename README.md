@@ -23,6 +23,11 @@ IOS Requirements:
 
 
 Backend Requirements:
+  1. We have API specification for each route in readme.md in our git repository
+  2. We have at least 4 routes as specified in readme
+  3. We have tables for genre, mood, and song and relationship song-genre, song-mood
+  4. We deploy to Heroku at https://songmatchappdev.herokuapp.com/
+
 
 
 
