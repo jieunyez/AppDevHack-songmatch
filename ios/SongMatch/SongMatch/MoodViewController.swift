@@ -15,7 +15,12 @@
 import UIKit
 import SwiftUI
 
-class MoodViewController: UIViewController {
+class MoodViewController: UIViewController, UpdateMoodGenreDelegate {
+    func updateMoodGenre(newMood: String, newGenre: String) {
+        selectedMood = newMood
+        selectedGenre = newGenre
+    }
+    
 
     private var button = UIButton()
     private var MyLabel = UILabel()
@@ -31,7 +36,8 @@ class MoodViewController: UIViewController {
     var child = UIHostingController(rootView: WaveView(col: Color.blue.opacity(0.3)))
     
 
-    private var selectedMood = ""
+    private var selectedMood = String()
+    private var selectedGenre = String()
     
     
     weak var delegate: UpdateMoodDelegate?
@@ -261,8 +267,8 @@ class MoodViewController: UIViewController {
 
     }
     @objc func NextButtonPressed(){
-        let vc = GenreViewController()
-        delegate?.updateMood(newMood: selectedMood)
+        let vc = GenreViewController(delegate: self, selectedMood: selectedMood)
+        //delegate?.updateMood(newMood: self.selectedMood)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -279,7 +285,7 @@ class MoodViewController: UIViewController {
 
         happylabel.isHidden = true
 
-        selectedMood = "happy"
+        selectedMood = "energy"
         
 
     }
@@ -307,8 +313,9 @@ class MoodViewController: UIViewController {
         MyLabel.isHidden = true
         sadlabel.isHidden = true
         calmlabel.isHidden = false
-
         happylabel.isHidden = true
+        
+        selectedMood = "calm"
     }
     @objc func happyPressed(){
         //view.backgroundColor = UIColor(red: 253/255, green: 208/255, blue: 23/255, alpha: 1)
@@ -320,7 +327,7 @@ class MoodViewController: UIViewController {
         calmlabel.isHidden = true
         happylabel.isHidden = false
 
-        selectedMood = "calm"
+        selectedMood = "happy"
 
     }
 }

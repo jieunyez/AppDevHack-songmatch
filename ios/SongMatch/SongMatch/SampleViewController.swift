@@ -20,8 +20,20 @@ class SampleViewController: UIViewController {
     var cellnum = 1000
     var songs: [Song] = []
     
-    private var selectedGenre = ""
-    private var selectedMood = ""
+    private var selectedGenre = "default2"
+    private var selectedMood = "default2"
+    
+    weak var delegate: UpdateMoodGenreDelegate?
+    init(delegate: UpdateMoodGenreDelegate?, selectedMood: String, selectedGenre: String) {
+        self.delegate = delegate
+        self.selectedMood = selectedMood
+        self.selectedGenre = selectedGenre
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +51,10 @@ class SampleViewController: UIViewController {
         view.layer.addSublayer(gradientLayer)
 
 
-        print("Printing Mood: \(selectedMood)")
-        print("Printing Genre: \(selectedGenre)")
+        print("Printing Mood in Sample: \(selectedMood)")
+        print("Printing Genre in Sample: \(selectedGenre)")
         getSongs(mood: selectedMood, genre: selectedGenre)
+        //getSongs(mood: "sad", genre: "indie")
         
         if (cellnum != 1000) {
             songs[cellnum] = currcell
@@ -132,7 +145,7 @@ extension SampleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var selectedCell = tableView.cellForRow(at: indexPath) as! SongTableViewCell
         let song = songs[indexPath.row]
-        let songViewController = SampleViewController()
+        let songViewController = SampleViewController(delegate: self, selectedMood: selectedMood, selectedGenre: selectedGenre)
         selectedCell.backgroundColor = UIColor(red: 214/255, green: 65/255, blue: 234/255, alpha: 1.0)
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

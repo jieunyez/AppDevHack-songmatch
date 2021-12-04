@@ -67,25 +67,25 @@ class NetworkManager {
         AF.request("\(endpoint)?mood=\(mood)&genre\(genre)", method: .get).validate().responseData { response in
             switch response.result {
             case .success(let data):
-//                let jsonDecoder = JSONDecoder()
-//                if let songResponse = try?
-//                    jsonDecoder.decode(SongsResponse.self, from:data) {
-//                    let song = songResponse.songs
-//                    print(song)
-//                    completion(song)
-//                } else {
-//                    print("decode error")
-//                }
-                do {
-                    let jsonDecoder = JSONDecoder()
-                    let songResponse = try
-                        jsonDecoder.decode(SongsResponse.self, from:data)
-                        let song = songResponse.songs
-                        print(song)
-                        completion(song)
-                } catch {
-                    print(error)
+                let jsonDecoder = JSONDecoder()
+                if let songResponse = try?
+                    jsonDecoder.decode(SongsResponse.self, from:data) {
+                    let song = songResponse.songs
+                    print(song)
+                    completion(song)
+                } else {
+                    print("decode error")
                 }
+//                do {
+//                    let jsonDecoder = JSONDecoder()
+//                    let songResponse = try
+//                        jsonDecoder.decode(SongsResponse.self, from:data)
+//                        let song = songResponse.songs
+//                        print(song)
+//                        completion(song)
+//                } catch {
+//                    print(error)
+//                }
             case .failure(let error):
                 print(error)
             }

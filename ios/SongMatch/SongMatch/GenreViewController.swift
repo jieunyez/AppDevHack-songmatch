@@ -7,7 +7,12 @@
 import UIKit
 import SwiftUI
 
-class GenreViewController: UIViewController {
+class GenreViewController: UIViewController, UpdateMoodGenreDelegate {
+    func updateMoodGenre(newMood: String, newGenre: String) {
+        selectedMood = newMood
+        selectedGenre = newGenre
+    }
+    
 
     private var button = UIButton()
     private var MyLabel = UILabel()
@@ -15,8 +20,8 @@ class GenreViewController: UIViewController {
     private var hiphop = UIButton()
     private var indie = UIButton()
     private var rock = UIButton()
-    private var selectedGenre = ""
-    private var selectedMood = ""
+    private var selectedGenre = "default"
+    private var selectedMood = "default"
     var bubblehc = UIHostingController(rootView: BubbleView())
     var child = UIHostingController(rootView: GenreView())
     var rockhc = UIHostingController(rootView: RockView())
@@ -24,19 +29,21 @@ class GenreViewController: UIViewController {
     var hiphc = UIHostingController(rootView: HipView())
     
     weak var delegate: UpdateMoodGenreDelegate?
-//    init(delegate: UpdateMoodGenreDelegate?, selectedMood: String, selectedGenre: String) {
-//        self.delegate = delegate
-//        self.selectedMood = ""
-//        self.selectedGenre = ""
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(delegate: UpdateMoodGenreDelegate?, selectedMood: String) {
+        self.delegate = delegate
+        self.selectedMood = selectedMood
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 
     override func viewDidLoad() {
+        print("Printing Mood in Genre: \(selectedMood)")
+        print("Printing Genre in Genre: \(selectedGenre)")
+        
         super.viewDidLoad()
         view.backgroundColor = .white
         
@@ -176,14 +183,14 @@ class GenreViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             pop.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
-            pop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
+            pop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 25),
             pop.widthAnchor.constraint(equalToConstant: 130),
             pop.heightAnchor.constraint(equalToConstant: 130)
 
         ])
         NSLayoutConstraint.activate([
             hiphop.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
-            hiphop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
+            hiphop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 25),
             hiphop.widthAnchor.constraint(equalToConstant: 130),
             hiphop.heightAnchor.constraint(equalToConstant: 130)
 
@@ -207,7 +214,7 @@ class GenreViewController: UIViewController {
     
     
     @objc func OKButtonPressed(){
-        let vc = SampleViewController()
+        let vc = SampleViewController(delegate: self, selectedMood: selectedMood, selectedGenre: selectedGenre)
         delegate?.updateMoodGenre(newMood: selectedMood, newGenre: selectedGenre)
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -286,6 +293,9 @@ protocol UpdateMoodDelegate: class {
 
 extension GenreViewController: UpdateMoodDelegate {
     func updateMood(newMood: String) {
-        self.selectedMood = newMood
+        print("Function updateMood:")
+        print("newMood: \(newMood)")
+        print("current selectedMood: \(selectedMood)")
+        selectedMood = newMood
     }
 }
