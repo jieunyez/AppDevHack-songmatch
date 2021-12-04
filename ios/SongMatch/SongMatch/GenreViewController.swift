@@ -171,26 +171,22 @@ class GenreViewController: UIViewController {
         NSLayoutConstraint.activate([
             pop.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
             pop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
-            pop.widthAnchor.constraint(equalToConstant: 150),
-            pop.heightAnchor.constraint(equalToConstant: 150)
+
         ])
         NSLayoutConstraint.activate([
             hiphop.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             hiphop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
-            hiphop.widthAnchor.constraint(equalToConstant: 150),
-            hiphop.heightAnchor.constraint(equalToConstant: 150)
+
         ])
         NSLayoutConstraint.activate([
             indie.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
             indie.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 40),
-            indie.widthAnchor.constraint(equalToConstant: 150),
-            indie.heightAnchor.constraint(equalToConstant: 150)
+
         ])
         NSLayoutConstraint.activate([
             rock.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             rock.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 40),
-            rock.widthAnchor.constraint(equalToConstant: 150),
-            rock.heightAnchor.constraint(equalToConstant: 150)
+
         ])
 
     }
@@ -198,10 +194,10 @@ class GenreViewController: UIViewController {
     
     @objc func OKButtonPressed(){
         let vc = SampleViewController()
-        //delegate?.getSortedSongs(mood: selectedMood, genre: selectedGenre)
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func popPressed(){
+
 //        pop.backgroundColor = UIColor(red: 253/255, green: 208/255, blue: 23/255, alpha: 1)
 //        hiphop.backgroundColor = .white
 //        indie.backgroundColor = .white
@@ -214,6 +210,7 @@ class GenreViewController: UIViewController {
         MyLabel.text = "Pop"
         MyLabel.textColor = .white
         selectedGenre = "pop"
+
         
     }
     
@@ -228,8 +225,10 @@ class GenreViewController: UIViewController {
         rockhc.view.isHidden = true
         bubblehc.view.isHidden = true
         MyLabel.text = "Hip Hop"
+
         MyLabel.textColor = .white
         selectedGenre = "hiphop"
+
     }
     
     @objc func indiePressed(){
@@ -243,8 +242,10 @@ class GenreViewController: UIViewController {
         rockhc.view.isHidden = true
         bubblehc.view.isHidden = true
         MyLabel.text = "Indie"
+
         MyLabel.textColor = .white
         selectedGenre = "indie"
+
     }
     @objc func rockPressed(){
 //        rock.backgroundColor = UIColor(red: 147/255, green: 108/255, blue: 183/255, alpha: 1)
@@ -257,18 +258,9 @@ class GenreViewController: UIViewController {
         rockhc.view.isHidden = false
         bubblehc.view.isHidden = true
         MyLabel.text = "Rock"
+
         MyLabel.textColor = .white
         selectedGenre = "rock"
+
     }
 }
-
-//protocol UpdateMoodDelegate: AnyObject {
-//    func updateMood(mood: String)
-//}
-//
-//extension GenreViewController: UpdateMoodDelegate {
-//    func updateMood(mood: String) {
-//        selectedMood = mood
-//    }
-//}
-

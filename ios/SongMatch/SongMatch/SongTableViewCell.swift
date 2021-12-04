@@ -43,7 +43,7 @@ class SongTableViewCell:UITableViewCell {
     }
     
     func configure(song: Song) {
-        nameLabel.text = song.name
+        nameLabel.text = song.title
         artistLabel.text = song.artist
         albumLabel.text = song.album
         coverImage.image = UIImage(named: song.cover)

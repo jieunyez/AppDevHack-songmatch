@@ -235,27 +235,27 @@ class MoodViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             energy.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
-            energy.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
-            energy.widthAnchor.constraint(equalToConstant: 150),
-            energy.heightAnchor.constraint(equalToConstant: 150)
+            energy.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+            energy.widthAnchor.constraint(equalToConstant: 130),
+            energy.heightAnchor.constraint(equalToConstant: 130)
         ])
         NSLayoutConstraint.activate([
             sad.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             sad.topAnchor.constraint(equalTo: energy.topAnchor),
-            sad.widthAnchor.constraint(equalToConstant: 150),
-            sad.heightAnchor.constraint(equalToConstant: 150)
+            sad.widthAnchor.constraint(equalToConstant: 130),
+            sad.heightAnchor.constraint(equalToConstant: 130)
         ])
         NSLayoutConstraint.activate([
             calm.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
             calm.topAnchor.constraint(equalTo: sad.bottomAnchor, constant: 30),
-            calm.widthAnchor.constraint(equalToConstant: 150),
-            calm.heightAnchor.constraint(equalToConstant: 150)
+            calm.widthAnchor.constraint(equalToConstant: 130),
+            calm.heightAnchor.constraint(equalToConstant: 130)
         ])
         NSLayoutConstraint.activate([
             happy.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             happy.topAnchor.constraint(equalTo: sad.bottomAnchor, constant: 30),
-            happy.widthAnchor.constraint(equalToConstant: 150),
-            happy.heightAnchor.constraint(equalToConstant: 150)
+            happy.widthAnchor.constraint(equalToConstant: 130),
+            happy.heightAnchor.constraint(equalToConstant: 130)
         ])
         
 
