@@ -12,10 +12,10 @@ Connecting unique users to unique music
 Our app allows users to input their mood and/or preferred genre to generate a playlist from our database of songs. 
 
 IOS Requirements:
-We used NSLayoutConstraint to position all of our app functions.
-Our playlist is displayed in a UITableView
-Our app has five screens and we used UINavigationController to navigate through them.
-Our app has integrated with an API written by our backend members.
+  1. We used NSLayoutConstraint to position all of our app functions.
+  2. Our playlist is displayed in a UITableView
+  3. Our app has five screens and we used UINavigationController to navigate through them.
+  4. Our app has integrated with an API written by our backend members.
 
 
 Backend Requirements:
