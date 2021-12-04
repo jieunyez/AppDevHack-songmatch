@@ -70,8 +70,8 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             MyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            MyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            MyLabel.widthAnchor.constraint(equalToConstant: 240),
+//            MyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
+            MyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             MyLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
         
