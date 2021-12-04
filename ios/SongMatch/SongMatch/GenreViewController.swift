@@ -13,7 +13,8 @@ class GenreViewController: UIViewController, UpdateMoodGenreDelegate {
         selectedGenre = newGenre
     }
     
-
+    let buttonSize = UIScreen.main.bounds.width/2.4
+    
     private var button = UIButton()
     private var MyLabel = UILabel()
     private var pop = UIButton()
@@ -177,36 +178,36 @@ class GenreViewController: UIViewController, UpdateMoodGenreDelegate {
         ])
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             button.widthAnchor.constraint(equalToConstant: 120),
             button.heightAnchor.constraint(equalToConstant: 40)
         ])
         NSLayoutConstraint.activate([
-            pop.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 28),
-            pop.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
-            pop.widthAnchor.constraint(equalToConstant: 150),
-            pop.heightAnchor.constraint(equalToConstant: 150)
+            pop.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
+            pop.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -buttonSize),
+            pop.widthAnchor.constraint(equalToConstant: buttonSize),
+            pop.heightAnchor.constraint(equalToConstant: buttonSize)
 
         ])
         NSLayoutConstraint.activate([
-            hiphop.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -28),
+            hiphop.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             hiphop.topAnchor.constraint(equalTo: pop.topAnchor),
-            hiphop.widthAnchor.constraint(equalToConstant: 150),
-            hiphop.heightAnchor.constraint(equalToConstant: 150)
+            hiphop.widthAnchor.constraint(equalToConstant: buttonSize),
+            hiphop.heightAnchor.constraint(equalToConstant: buttonSize)
 
         ])
         NSLayoutConstraint.activate([
-            indie.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 28),
+            indie.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
             indie.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 30),
-            indie.widthAnchor.constraint(equalToConstant: 150),
-            indie.heightAnchor.constraint(equalToConstant: 150)
+            indie.widthAnchor.constraint(equalToConstant: buttonSize),
+            indie.heightAnchor.constraint(equalToConstant: buttonSize)
 
         ])
         NSLayoutConstraint.activate([
-            rock.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -28),
+            rock.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             rock.topAnchor.constraint(equalTo: hiphop.bottomAnchor, constant: 30),
-            rock.widthAnchor.constraint(equalToConstant: 150),
-            rock.heightAnchor.constraint(equalToConstant: 150)
+            rock.widthAnchor.constraint(equalToConstant: buttonSize),
+            rock.heightAnchor.constraint(equalToConstant: buttonSize)
 
         ])
 
