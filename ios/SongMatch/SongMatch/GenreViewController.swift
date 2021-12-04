@@ -13,7 +13,7 @@ class GenreViewController: UIViewController, UpdateMoodGenreDelegate {
         selectedGenre = newGenre
     }
     
-    let buttonSize = UIScreen.main.bounds.width/2.5
+    let buttonSize = UIScreen.main.bounds.width/2.4
     
     private var button = UIButton()
     private var MyLabel = UILabel()
@@ -184,7 +184,7 @@ class GenreViewController: UIViewController, UpdateMoodGenreDelegate {
         ])
         NSLayoutConstraint.activate([
             pop.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
-            pop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 15),
+            pop.topAnchor.constraint(equalTo: view.centerYAnchor, constant: -buttonSize),
             pop.widthAnchor.constraint(equalToConstant: buttonSize),
             pop.heightAnchor.constraint(equalToConstant: buttonSize)
 
