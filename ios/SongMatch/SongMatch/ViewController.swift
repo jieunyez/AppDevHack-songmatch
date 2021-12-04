@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         self.addChild(child)
         
         MyLabel.image = UIImage(named: "homeimg")
+        MyLabel.contentMode = .scaleAspectFill
         MyLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(MyLabel)
         
@@ -65,9 +66,11 @@ class ViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            MyLabel.widthAnchor.constraint(equalToConstant: 400),
-            MyLabel.heightAnchor.constraint(equalToConstant: 100),
-            MyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
+//            MyLabel.widthAnchor.constraint(equalToConstant: 400),
+            MyLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24),
+//            MyLabel.heightAnchor.constraint(equalToConstant: 100),
+            MyLabel.heightAnchor.constraint(equalTo: pushButton.heightAnchor),
+            MyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 7),
             MyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100)
         ])
         
