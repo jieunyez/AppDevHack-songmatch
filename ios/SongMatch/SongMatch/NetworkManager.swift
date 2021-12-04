@@ -10,12 +10,13 @@ import Alamofire
 
 class NetworkManager {
 
+    static let endpoint0 = "https://songmatchappdev.herokuapp.com/tests/songs/"
     static let endpoint = "https://songmatchappdev.herokuapp.com/getsongs/"
 
 
 
     static func getSongs(completion: @escaping ([Song]) -> Void) {
-        AF.request(endpoint, method: .get).validate().responseData { response in
+        AF.request(endpoint0, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let data):
                 let jsonDecoder = JSONDecoder()
