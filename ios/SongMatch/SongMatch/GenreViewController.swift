@@ -24,9 +24,13 @@ class GenreViewController: UIViewController {
     var hiphc = UIHostingController(rootView: HipView())
     
     weak var delegate: UpdateMoodGenreDelegate?
-    
-    //weak var delegate: GetSortedSongsDelegate?
-
+//    init(delegate: UpdateMoodGenreDelegate?, selectedMood: String, selectedGenre: String) {
+//        self.delegate = delegate
+//        self.selectedMood = ""
+//        self.selectedGenre = ""
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
 //    required init?(coder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }

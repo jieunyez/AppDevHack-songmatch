@@ -39,7 +39,8 @@ class SampleViewController: UIViewController {
         view.layer.addSublayer(gradientLayer)
 
 
-        
+        print("Printing Mood: \(selectedMood)")
+        print("Printing Genre: \(selectedGenre)")
         getSongs(mood: selectedMood, genre: selectedGenre)
         
         if (cellnum != 1000) {
