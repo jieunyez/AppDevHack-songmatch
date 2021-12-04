@@ -21,7 +21,8 @@ class MoodViewController: UIViewController, UpdateMoodGenreDelegate {
         selectedGenre = newGenre
     }
     
-
+    let buttonSize = UIScreen.main.bounds.width/2.5
+    
     private var button = UIButton()
     private var MyLabel = UILabel()
     private var energy = UIButton()
@@ -235,33 +236,33 @@ class MoodViewController: UIViewController, UpdateMoodGenreDelegate {
         ])
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             button.widthAnchor.constraint(equalToConstant: 120),
             button.heightAnchor.constraint(equalToConstant: 40)
         ])
         NSLayoutConstraint.activate([
-            energy.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 28),
-            energy.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
-            energy.widthAnchor.constraint(equalToConstant: 150),
-            energy.heightAnchor.constraint(equalToConstant: 150)
+            energy.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
+            energy.topAnchor.constraint(equalTo: energylabel.bottomAnchor, constant: 20),
+            energy.widthAnchor.constraint(equalToConstant: buttonSize),
+            energy.heightAnchor.constraint(equalToConstant: buttonSize)
         ])
         NSLayoutConstraint.activate([
-            sad.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -28),
+            sad.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
             sad.topAnchor.constraint(equalTo: energy.topAnchor),
-            sad.widthAnchor.constraint(equalToConstant: 150),
-            sad.heightAnchor.constraint(equalToConstant: 150)
+            sad.widthAnchor.constraint(equalToConstant: buttonSize),
+            sad.heightAnchor.constraint(equalToConstant: buttonSize)
         ])
         NSLayoutConstraint.activate([
             calm.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 28),
-            calm.topAnchor.constraint(equalTo: sad.bottomAnchor, constant: 30),
-            calm.widthAnchor.constraint(equalToConstant: 150),
-            calm.heightAnchor.constraint(equalToConstant: 150)
+            calm.topAnchor.constraint(equalTo: sad.bottomAnchor, constant: 25),
+            calm.widthAnchor.constraint(equalToConstant: buttonSize),
+            calm.heightAnchor.constraint(equalToConstant: buttonSize)
         ])
         NSLayoutConstraint.activate([
             happy.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -28),
-            happy.topAnchor.constraint(equalTo: sad.bottomAnchor, constant: 30),
-            happy.widthAnchor.constraint(equalToConstant: 150),
-            happy.heightAnchor.constraint(equalToConstant: 150)
+            happy.topAnchor.constraint(equalTo: sad.bottomAnchor, constant: 25),
+            happy.widthAnchor.constraint(equalToConstant: buttonSize),
+            happy.heightAnchor.constraint(equalToConstant: buttonSize)
         ])
         
 
