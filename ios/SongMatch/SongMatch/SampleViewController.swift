@@ -44,7 +44,7 @@ class SampleViewController: UIViewController {
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor(red: 138/255, green: 34/255, blue: 191/255, alpha: 1.0).cgColor, UIColor(red: 17/255, green: 3/255, blue: 79/255, alpha: 1.0).cgColor]
+        gradientLayer.colors = [UIColor(red: 0.043, green: 0.467, blue: 0.494, alpha: 1.0).cgColor, UIColor(red: 0.196, green: 0.749, blue: 0.486, alpha: 1.0).cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
         gradientLayer.shouldRasterize = true
@@ -146,7 +146,7 @@ extension SampleViewController: UITableViewDelegate {
         var selectedCell = tableView.cellForRow(at: indexPath) as! SongTableViewCell
         let song = songs[indexPath.row]
         let songViewController = SampleViewController(delegate: self, selectedMood: selectedMood, selectedGenre: selectedGenre)
-        selectedCell.backgroundColor = UIColor(red: 214/255, green: 65/255, blue: 234/255, alpha: 1.0)
+        selectedCell.backgroundColor = UIColor(red: 0.039, green: 0.388, blue: 0.502, alpha: 1.0)
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         var deselectedCell = tableView.cellForRow(at: indexPath) as! SongTableViewCell
