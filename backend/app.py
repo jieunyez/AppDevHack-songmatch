@@ -20,25 +20,27 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///song_recommendation.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
 
-# t, g, m, a
-initial_Data = [('The Feels', 'Pop', 'Energetic','Twice'),
-                ('WAP', 'Hip Hop', 'Energetic', 'Cardi B'),
-                ('DISCO','Indie','Energetic', 'Surf Curse'),
-                ('Speechless',	'Pop',	'Calm','Naomi Scott'),
-                ('Nothing I won’t do',	'Hip Hop','Sad','Russ'),
-                ('Forever Dumb','Indie', 'Sad', 'Surf Curse'),
-                ('Thinking out Loud', 	'Pop',  'Calm',	'Ed Sheeran'),
-                ('Wu-Tang Forever',	'Hip Hop',	'Calm',	'Drake'),       
-                ('Hide & Seek',	'Indie',	'Sad',	'Etta Marcus')]
-                
+# t, g, m, a, al, c
+initial_Data = [('The Feels', 'Pop', 'Energetic','Twice','Formula of Love: O+T=<3', 'formula of love: o+t=<3'),
+                ('WAP', 'Hip Hop', 'Energetic', 'Cardi B', 'WAP', 'wap'),
+                ('DISCO','Indie','Energetic', 'Surf Curse', 'Heaven Surrounds You', 'heaven surrounds you'),
+                ('Speechless',	'Pop',	'Calm','Naomi Scott', 'Aladdin', 'aladdin'),
+                ("Nothin I Won't Do",	'Hip Hop','Sad','Russ', "Nothin I Won't Do","nothin i won't do"),
+                ('Forever Dumb','Indie', 'Sad', 'Surf Curse','Sad Boys EP','sad boys ep'),
+                ('Thinking out Loud', 	'Pop',  'Calm',	'Ed Sheeran','x','x'),
+                ('Wu-Tang Forever',	'Hip Hop',	'Calm',	'Drake','Nothing Was the Same', 'nothing was the same'),
+                ('Hide & Seek',	'Indie',	'Sad',	'Etta Marcus','View from the Bridge','view from the bridge'),
+                ('Beautiful Day',	'Rock',	'Happy',	'U2', "All That You Can't Leave Behind", "all that you can't leave behind"),
+                ("Livin' on a Prayer",	'Rock',	'Happy',	'Bon Jovi', 'Slippery When Wet', 'slippery when wet')]
+
 db.init_app(app)
 with app.app_context():
     db.create_all()
-    
-    for t, g, m , a in initial_Data:
+
+    for t, g, m, a, al, c in initial_Data:
         song = Song.query.filter_by(title=t).first()
         if song is None:
-            newsong = Song(title=t, artist= a )
+            newsong = Song(title=t, artist=a, album=al, cover=c)
             new_genre=Genre.query.filter_by(name=g).first()
             if new_genre is None:
                 new_genre = Genre(name=g)
@@ -50,8 +52,8 @@ with app.app_context():
                 db.session.add(new_mood)
             new_mood.songs.append(newsong)
             db.session.commit()
-    
-   
+
+
 
 def success_response(data, code=200):
     return json.dumps(data), code
@@ -59,13 +61,7 @@ def success_response(data, code=200):
 def failure_response(message, code=404):
     return json.dumps({"error": message}), code
 
-#  @app.route("/setup/", methods=["POST"])
-#  def setup():
 
-#get song through inputs; get, incomplete
-# @app.route("/recommendation/", methods=["GET"])
-# def get_song():
-    
 
 #input song, output genre / mood; get, completed
 @app.route("/song/<int:song_id>/", methods=["GET"])
@@ -81,7 +77,7 @@ def create_song():
     body = json.loads(request.data)
     if not body.get("title") or not body.get("artist") or not body.get("genre") or not body.get("mood"):
         return failure_response("Please input a song title, artist, genre and mood!", 400)
-    
+
     #create song
     new_song = Song(title=body.get("title"), artist=body.get("artist"))
     db.session.add(new_song)
@@ -101,10 +97,10 @@ def create_song():
         new_mood = Mood(name=mood)
         db.session.add(new_mood)
     new_mood.songs.append(new_song)
-    
+
     db.session.commit()
     return success_response(new_song.serialize(), 201)
-        
+
 
 #delete song in list of songs of output; post
 @app.route("/song/<song_title>", methods=["DELETE"])
@@ -112,7 +108,7 @@ def delete_song(song_title):
     song = Song.query.filter_by(id=song_title).first()
     if song is None:
         return failure_response("Song not found!")
-    
+
     db.session.delete(song)
     db.session.commit()
     return success_response(song.serialize())
@@ -122,7 +118,7 @@ def delete_song(song_title):
 def get_song_list():
     genre  = request.args.get('genre', None)
     mood  = request.args.get('mood', None)
-    
+
     if genre is not None and mood is not None:
         songs= Song.query.join(Song.mood, aliased = True).filter(func.lower(Mood.name)== func.lower(mood)).join(Song.genre, aliased = True).filter(func.lower(Genre.name)== func.lower(genre))
     elif genre is None:
@@ -131,7 +127,7 @@ def get_song_list():
         songs = Song.query.join(Song.genre, aliased = True).filter(func.lower(Genre.name)== func.lower(genre))
     else:
         return failure_response("No input!")
-    
+
     data = [s.serialize() for s in songs]
     return success_response(
         {"songs": data}
@@ -157,5 +153,5 @@ def get_moods():
     )
 
 if __name__ == "__main__":
-    port = os.environ.get("PORT", 5000)
-    app.run(host="0.0.0.0", port=port, debug = True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
