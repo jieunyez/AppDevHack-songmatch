@@ -14,7 +14,7 @@ import SwiftUI
 
 class ViewController: UIViewController {
 
-    private var MyLabel = UILabel()
+    private var MyLabel = UIImageView()
     private var pushButton = UIButton()
     private var presentButton = UIButton()
     var child = UIHostingController(rootView: ContentView())
@@ -30,12 +30,8 @@ class ViewController: UIViewController {
         self.view.addSubview(child.view)
         self.addChild(child)
         
-        MyLabel = UILabel()
+        MyLabel.image = UIImage(named: "homeimg")
         MyLabel.translatesAutoresizingMaskIntoConstraints = false
-        MyLabel.text = "SongMatch"
-        MyLabel.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
-        MyLabel.textAlignment = .left
-        MyLabel.textColor = .white
         view.addSubview(MyLabel)
         
         pushButton.translatesAutoresizingMaskIntoConstraints = false
@@ -69,10 +65,10 @@ class ViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            MyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            MyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
-            MyLabel.widthAnchor.constraint(equalToConstant: 240),
-            MyLabel.heightAnchor.constraint(equalToConstant: 50)
+            MyLabel.widthAnchor.constraint(equalToConstant: 400),
+            MyLabel.heightAnchor.constraint(equalToConstant: 100),
+            MyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
+            MyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100)
         ])
         
         NSLayoutConstraint.activate([
