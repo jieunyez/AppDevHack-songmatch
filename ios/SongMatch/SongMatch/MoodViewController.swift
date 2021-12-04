@@ -26,8 +26,8 @@ class MoodViewController: UIViewController {
     private var energylabel = UILabel()
     private var sadlabel = UILabel()
     private var calmlabel = UILabel()
-
     private var happylabel = UILabel()
+    
     var child = UIHostingController(rootView: WaveView(col: Color.blue.opacity(0.3)))
     
 

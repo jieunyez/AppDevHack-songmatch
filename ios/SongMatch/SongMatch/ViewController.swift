@@ -107,7 +107,7 @@ class ViewController: UIViewController {
 
 struct ContentView: View {
     
-    @State var gradient = [Color.red, Color.purple, Color.orange]
+    @State var gradient = [Color(red: 0.043, green: 0.467, blue: 0.494), Color(red: 0.039, green: 0.388, blue: 0.502), Color(red: 0.196, green: 0.796, blue: 0.329), Color(red: 0.541, green: 0.733, blue: 0.812), Color(red: 0.196, green: 0.749, blue: 0.486)]
     @State var startPoint = UnitPoint(x: 0, y: 0)
     @State var endPoint = UnitPoint(x: 0, y: 2)
     
