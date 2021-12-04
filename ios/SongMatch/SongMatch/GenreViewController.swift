@@ -23,6 +23,8 @@ class GenreViewController: UIViewController {
     var indiehc = UIHostingController(rootView: IndieView())
     var hiphc = UIHostingController(rootView: HipView())
     
+    weak var delegate: UpdateMoodGenreDelegate?
+    
     //weak var delegate: GetSortedSongsDelegate?
 
 //    required init?(coder: NSCoder) {
@@ -194,6 +196,7 @@ class GenreViewController: UIViewController {
     
     @objc func OKButtonPressed(){
         let vc = SampleViewController()
+        delegate?.updateMoodGenre(newMood: selectedMood, newGenre: selectedGenre)
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func popPressed(){
@@ -262,5 +265,15 @@ class GenreViewController: UIViewController {
         MyLabel.textColor = .white
         selectedGenre = "rock"
 
+    }
+}
+
+protocol UpdateMoodDelegate: class {
+    func updateMood(newMood: String)
+}
+
+extension GenreViewController: UpdateMoodDelegate {
+    func updateMood(newMood: String) {
+        self.selectedMood = newMood
     }
 }
