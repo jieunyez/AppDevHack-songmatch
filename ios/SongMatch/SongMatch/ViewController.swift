@@ -98,7 +98,8 @@ class ViewController: UIViewController {
     @objc func listButtonPressed() {
         // TODO 4: create VC to present
         // TODO 9: update delegate
-        let vc = PlaylistViewController()
+        //let vc = PlaylistViewController()
+        let vc = CurrentViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 
