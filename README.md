@@ -11,6 +11,9 @@ Connecting unique users to unique music
 
 Our app allows users to input their mood and/or preferred genre to generate a playlist from our database of songs. 
 
+App Description:
+  Our app can generate a playlist according to the mood and genre the users input. We have five screens: The homepage, the current song list page, the mood page, the genre page, and the generated song list page. There are two buttons on the homepage. By clicking to the "Your current song list" button, the users will be navigated to a list of songs that we currently have in our database. By click the other button, which is "Generate your song!", the users will be led to the mood page where they can choose between the four moods we have for now. When they click on "next", they will be led to the Genre page where they can choose a genre they like. When they click on the "OK" button, they will see a page with the songs generated based on their choice of mood and genre.
+
 IOS Requirements:
   1. We used NSLayoutConstraint to position all of our app functions.
   2. Our playlist is displayed in a UITableView
