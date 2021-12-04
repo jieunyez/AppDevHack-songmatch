@@ -15,8 +15,8 @@ class GenreViewController: UIViewController {
     private var hiphop = UIButton()
     private var indie = UIButton()
     private var rock = UIButton()
-    private var selectedGenre = ""
-    private var selectedMood = ""
+    private var selectedGenre = "default"
+    private var selectedMood = "default"
     var bubblehc = UIHostingController(rootView: BubbleView())
     var child = UIHostingController(rootView: GenreView())
     var rockhc = UIHostingController(rootView: RockView())
@@ -24,19 +24,21 @@ class GenreViewController: UIViewController {
     var hiphc = UIHostingController(rootView: HipView())
     
     weak var delegate: UpdateMoodGenreDelegate?
-//    init(delegate: UpdateMoodGenreDelegate?, selectedMood: String, selectedGenre: String) {
-//        self.delegate = delegate
-//        self.selectedMood = ""
-//        self.selectedGenre = ""
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(delegate: UpdateMoodGenreDelegate?, selectedMood: String) {
+        self.delegate = delegate
+        self.selectedMood = selectedMood
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 
     override func viewDidLoad() {
+        print("Printing Mood in Genre: \(selectedMood)")
+        print("Printing Genre in Genre: \(selectedGenre)")
+        
         super.viewDidLoad()
         view.backgroundColor = .white
         
@@ -286,6 +288,9 @@ protocol UpdateMoodDelegate: class {
 
 extension GenreViewController: UpdateMoodDelegate {
     func updateMood(newMood: String) {
-        self.selectedMood = newMood
+        print("Function updateMood:")
+        print("newMood: \(newMood)")
+        print("current selectedMood: \(selectedMood)")
+        selectedMood = newMood
     }
 }

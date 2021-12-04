@@ -20,8 +20,8 @@ class SampleViewController: UIViewController {
     var cellnum = 1000
     var songs: [Song] = []
     
-    private var selectedGenre = ""
-    private var selectedMood = ""
+    private var selectedGenre = "default2"
+    private var selectedMood = "default2"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,8 @@ class SampleViewController: UIViewController {
         view.layer.addSublayer(gradientLayer)
 
 
-        print("Printing Mood: \(selectedMood)")
-        print("Printing Genre: \(selectedGenre)")
+        print("Printing Mood in Sample: \(selectedMood)")
+        print("Printing Genre in Sample: \(selectedGenre)")
         //getSongs(mood: selectedMood, genre: selectedGenre)
         getSongs(mood: "sad", genre: "indie")
         
