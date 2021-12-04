@@ -7,7 +7,12 @@
 import UIKit
 import SwiftUI
 
-class GenreViewController: UIViewController {
+class GenreViewController: UIViewController, UpdateMoodGenreDelegate {
+    func updateMoodGenre(newMood: String, newGenre: String) {
+        selectedMood = newMood
+        selectedGenre = newGenre
+    }
+    
 
     private var button = UIButton()
     private var MyLabel = UILabel()
@@ -209,7 +214,7 @@ class GenreViewController: UIViewController {
     
     
     @objc func OKButtonPressed(){
-        let vc = SampleViewController()
+        let vc = SampleViewController(delegate: self, selectedMood: selectedMood, selectedGenre: selectedGenre)
         delegate?.updateMoodGenre(newMood: selectedMood, newGenre: selectedGenre)
         navigationController?.pushViewController(vc, animated: true)
     }
