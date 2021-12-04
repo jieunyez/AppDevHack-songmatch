@@ -60,7 +60,7 @@ class SongTableViewCell:UITableViewCell {
         NSLayoutConstraint.activate([
             coverImage.heightAnchor.constraint(equalToConstant: 75),
             coverImage.widthAnchor.constraint(equalToConstant: 75),
-            coverImage.leftAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leftAnchor, constant: 8),
+            coverImage.leftAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leftAnchor, constant: 15),
             coverImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
         NSLayoutConstraint.activate([

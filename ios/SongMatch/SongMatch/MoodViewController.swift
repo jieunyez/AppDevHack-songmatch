@@ -235,33 +235,33 @@ class MoodViewController: UIViewController, UpdateMoodGenreDelegate {
         ])
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             button.widthAnchor.constraint(equalToConstant: 120),
-            button.heightAnchor.constraint(equalToConstant: 32)
+            button.heightAnchor.constraint(equalToConstant: 40)
         ])
         NSLayoutConstraint.activate([
-            energy.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
-            energy.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
-            energy.widthAnchor.constraint(equalToConstant: 130),
-            energy.heightAnchor.constraint(equalToConstant: 130)
+            energy.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 28),
+            energy.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
+            energy.widthAnchor.constraint(equalToConstant: 150),
+            energy.heightAnchor.constraint(equalToConstant: 150)
         ])
         NSLayoutConstraint.activate([
-            sad.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
+            sad.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -28),
             sad.topAnchor.constraint(equalTo: energy.topAnchor),
-            sad.widthAnchor.constraint(equalToConstant: 130),
-            sad.heightAnchor.constraint(equalToConstant: 130)
+            sad.widthAnchor.constraint(equalToConstant: 150),
+            sad.heightAnchor.constraint(equalToConstant: 150)
         ])
         NSLayoutConstraint.activate([
-            calm.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
+            calm.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 28),
             calm.topAnchor.constraint(equalTo: sad.bottomAnchor, constant: 30),
-            calm.widthAnchor.constraint(equalToConstant: 130),
-            calm.heightAnchor.constraint(equalToConstant: 130)
+            calm.widthAnchor.constraint(equalToConstant: 150),
+            calm.heightAnchor.constraint(equalToConstant: 150)
         ])
         NSLayoutConstraint.activate([
-            happy.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
+            happy.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -28),
             happy.topAnchor.constraint(equalTo: sad.bottomAnchor, constant: 30),
-            happy.widthAnchor.constraint(equalToConstant: 130),
-            happy.heightAnchor.constraint(equalToConstant: 130)
+            happy.widthAnchor.constraint(equalToConstant: 150),
+            happy.heightAnchor.constraint(equalToConstant: 150)
         ])
         
 
