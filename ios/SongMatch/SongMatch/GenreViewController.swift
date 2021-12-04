@@ -176,14 +176,14 @@ class GenreViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             pop.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 25),
-            pop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
+            pop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 25),
             pop.widthAnchor.constraint(equalToConstant: 130),
             pop.heightAnchor.constraint(equalToConstant: 130)
 
         ])
         NSLayoutConstraint.activate([
             hiphop.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -25),
-            hiphop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 60),
+            hiphop.topAnchor.constraint(equalTo: MyLabel.bottomAnchor, constant: 25),
             hiphop.widthAnchor.constraint(equalToConstant: 130),
             hiphop.heightAnchor.constraint(equalToConstant: 130)
 

@@ -41,7 +41,8 @@ class SampleViewController: UIViewController {
 
         print("Printing Mood: \(selectedMood)")
         print("Printing Genre: \(selectedGenre)")
-        getSongs(mood: selectedMood, genre: selectedGenre)
+        //getSongs(mood: selectedMood, genre: selectedGenre)
+        getSongs(mood: "sad", genre: "indie")
         
         if (cellnum != 1000) {
             songs[cellnum] = currcell
